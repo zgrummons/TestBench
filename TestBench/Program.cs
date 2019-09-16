@@ -16,15 +16,13 @@ namespace TestBench
 
             var container = new Container(_ =>
             {
-                _.For<IBenchmarker>().Use<Benchmarker>().Singleton();
-
                 _.Scan(x =>
                 {
-                    x.AssembliesAndExecutablesFromApplicationBaseDirectory();
+                    x.TheCallingAssembly();
+                    x.AddAllTypesOf<IAlgorithm>();
                 });
-                //_.For<IAlgorithm>().Add<LinqAlgorithm>();
-                //_.For<IAlgorithm>().Add<SimpleAlgorithm>();
-                //_.For<IAlgorithm>().Add<SimpleO1Algorithm>();
+
+                _.For<IBenchmarker>().Use<Benchmarker>().Singleton();
             });
 
             container.GetInstance<IBenchmarker>().Run();
