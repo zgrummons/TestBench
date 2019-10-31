@@ -19,7 +19,7 @@ namespace TestBench
                 });
 
                 _.For<IBenchmarker>().Use<Benchmarker>().Singleton();
-                _.For<ILogger>().Use(new LoggerConfiguration().WriteTo.Console().CreateLogger());
+                _.For<ILogger>().Use(new LoggerConfiguration().WriteTo.Console().CreateLogger()).Singleton();
             });
              
             container.GetInstance<IBenchmarker>().Run();
