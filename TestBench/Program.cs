@@ -14,13 +14,13 @@ namespace TestBench
         {
             var container = new Container(_ =>
             {
-                _.For<IBenchmarker>().Use<Benchmarker>().Singleton();
-
                 _.Scan(x =>
                 {
                     x.TheCallingAssembly();
                     x.AddAllTypesOf<IAlgorithm>();
                 });
+
+                _.For<IBenchmarker>().Use<Benchmarker>().Singleton();
             });
 
             container.GetInstance<IBenchmarker>().Run();
