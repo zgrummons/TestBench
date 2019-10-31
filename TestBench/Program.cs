@@ -1,8 +1,6 @@
-﻿using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Lamar;
+﻿using Lamar;
+using Serilog;
+using Serilog.Core;
 using TestBench.Algorithms;
 using TestBench.Core;
 
@@ -21,8 +19,9 @@ namespace TestBench
                 });
 
                 _.For<IBenchmarker>().Use<Benchmarker>().Singleton();
+                _.For<ILogger>().Use(new LoggerConfiguration().WriteTo.Console().CreateLogger()).Singleton();
             });
-
+             
             container.GetInstance<IBenchmarker>().Run();
         }
 
