@@ -46,7 +46,7 @@ namespace TestBench.Core
             for (var i = 0; i < count; i++)
             {
                 if (i % percentIncrement == 0)
-                    _logger.Information($"\r{i / percentIncrement}% done");
+                    _logger.Information($"{i / percentIncrement}% done");
                 numbers[i] = rng.Next();
             }
 
