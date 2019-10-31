@@ -1,6 +1,6 @@
 ﻿namespace TestBench.Algorithms
 {
-    internal class SimpleO1Algorithm : IAlgorithm
+    public class SimpleO1Algorithm : IAlgorithm
     {
         public int Solution(int[] inputs)
         {
