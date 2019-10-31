@@ -18,13 +18,14 @@ namespace TestBench
             {
                 _.For<IBenchmarker>().Use<Benchmarker>().Singleton();
 
-                _.Scan(x =>
-                {
-                    x.AssembliesAndExecutablesFromApplicationBaseDirectory();
-                });
-                //_.For<IAlgorithm>().Add<LinqAlgorithm>();
-                //_.For<IAlgorithm>().Add<SimpleAlgorithm>();
-                //_.For<IAlgorithm>().Add<SimpleO1Algorithm>();
+                //_.Scan(x =>
+                //{
+                //    x.AssemblyContainingType<IAlgorithm>();
+                //    x.LookForRegistries();
+                //});
+                _.For<IAlgorithm>().Add<LinqAlgorithm>();
+                _.For<IAlgorithm>().Add<SimpleAlgorithm>();
+                _.For<IAlgorithm>().Add<SimpleO1Algorithm>();
             });
 
             container.GetInstance<IBenchmarker>().Run();
