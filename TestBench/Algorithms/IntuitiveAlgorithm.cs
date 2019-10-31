@@ -5,11 +5,8 @@
         public int Solution(int[] inputs)
         {
             var result = int.MaxValue;
-            for (int i = 0; i < inputs.Length / 2; i++)
-            {
-                if (inputs[i] )
-            }
-
+            foreach (var t in inputs)
+                result = t < result ? t : result;
             return result;
         }
         private static int SolutionN2(int[] a)

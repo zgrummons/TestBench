@@ -12,8 +12,6 @@ namespace TestBench
     {
         private static void Main()
         {
-            //PostAttachment()
-
             var container = new Container(_ =>
             {
                 _.Scan(x =>
